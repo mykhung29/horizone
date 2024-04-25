@@ -99,12 +99,12 @@ class VideoPlayer(tk.Tk):
 
         # Tìm điểm giao của hai lane
         intersection_points = self.find_intersection(left_lane, right_lane)
-        last_five_point = intersection_points[-5:]
+        # last_five_point = intersection_points[-5:]
 
         # print(len(last_five_point))
-        intersection_point = np.mean(last_five_point, axis=0)
-        intersection_point = (int(intersection_point[0]), int(intersection_point[1]))
-        print(intersection_point)
+        # intersection_point = np.mean(last_five_point, axis=0)
+        # intersection_point = (int(intersection_point[0]), int(intersection_point[1]))
+        # print(intersection_point)
 
         # Vẽ các đường kẻ đường lên ảnh gốc
         self.draw_lane_lines(frame, left_lane)
@@ -112,7 +112,7 @@ class VideoPlayer(tk.Tk):
 
         # Vẽ điểm giao lên ảnh gốc
         # cv2.circle(frame, intersection_point, 10, (0, 0, 255), -1)
-        cv2.line(frame, (0, intersection_point[1]), (frame.shape[1], intersection_point[1]), (0, 0, 255), 2)
+        cv2.line(frame, (0, intersection_points[1]), (frame.shape[1], intersection_points[1]), (0, 0, 255), 2)
 
         return frame
 
